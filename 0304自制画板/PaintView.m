@@ -29,7 +29,6 @@
         _paths = [NSMutableArray array];
         
 //        _arr = [NSMutableArray array];
-
     }
     return self;
 }
@@ -94,8 +93,66 @@
     CGContextSetStrokeColorWithColor(context, ((UIColor *)arr[0]).CGColor);
     CGContextSetLineWidth(context, [arr[1] floatValue]);
     CGContextDrawPath(context, kCGPathStroke);
-    
 }
+
+- (void)saveImage {
+
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, [UIScreen mainScreen].scale);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    for (int i = 0; i < _paths.count; i++) {
+        CGMutablePathRef path1 = (__bridge CGMutablePathRef)(_paths[i]);
+        CGContextAddPath(context, path1);
+        
+        NSArray *arr = _data[i];
+        
+        CGContextSetStrokeColorWithColor(context, ((UIColor *)arr[0]).CGColor);
+        CGContextSetLineWidth(context, [arr[1] floatValue]);
+        CGContextDrawPath(context, kCGPathStroke);
+    }
+    
+    CGContextAddPath(context, path);
+    
+    NSArray *arr = [_data lastObject];
+    
+    CGContextSetStrokeColorWithColor(context, ((UIColor *)arr[0]).CGColor);
+    CGContextSetLineWidth(context, [arr[1] floatValue]);
+    CGContextDrawPath(context, kCGPathStroke);
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+
+}
+
+- (void)image:(UIImage *)image didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo {
+    
+    if (error == nil) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UIView *success = [[UIView alloc] initWithFrame:CGRectMake((kScreenWidth - 100) / 2.0, (kScreenHeight - 50) / 2.0, 100, 50)];
+            
+            success.tag = 18;
+            success.backgroundColor = [UIColor grayColor];
+            [[UIApplication sharedApplication].keyWindow addSubview:success];
+            
+            UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 50)];
+            label.text = @"保存成功";
+            label.textColor = [UIColor whiteColor];
+            label.textAlignment = NSTextAlignmentCenter;
+            [success addSubview:label];
+            
+            [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerAction:) userInfo:nil repeats:YES];
+        });
+        
+    }
+}
+
+- (void)timerAction:(NSTimer *)timer {
+    
+    [[[UIApplication sharedApplication].keyWindow viewWithTag:18] removeFromSuperview];
+    [timer invalidate];
+}
+
 - (void)cancel{
     if (_paths.count != 0) {
         [_paths removeLastObject];

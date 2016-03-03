@@ -18,4 +18,5 @@ typedef void(^IsCancleBlock)(void);
 
 - (void)cancel;
 - (void)clear;
+- (void)saveImage;
 @end

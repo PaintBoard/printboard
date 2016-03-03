@@ -47,14 +47,14 @@
 #pragma mark -create
 - (void)_createButtons{//5个总button,tag = 100~104;
 
-    CGFloat buttonWidth = kScreenWidth / 5;
+    CGFloat buttonWidth = kScreenWidth / 6;
     CGFloat buttonHeight = 40;
     
-    NSArray *arr = @[@"颜色",@"线宽",@"橡皮",@"撤销",@"清屏"];
+    NSArray *arr = @[@"颜色",@"线宽",@"橡皮",@"撤销",@"清屏",@"保存"];
     
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 6; i++) {
         
-        UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(buttonWidth * i, 20, kScreenWidth / 5, buttonHeight)];
+        UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(buttonWidth * i, 20, kScreenWidth / 6, buttonHeight)];
         
         [button setTitle:arr[i] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -69,7 +69,7 @@
 
 - (void)_createRedView{//按钮标示红色底图tag= 200;
     
-    CGFloat buttonWidth = kScreenWidth / 5;
+    CGFloat buttonWidth = kScreenWidth / 6;
     CGFloat buttonHeight = 40;
     
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, buttonHeight + 20, buttonWidth, 5)];
@@ -187,6 +187,11 @@
     else if (button.tag == 104){//清屏button
        
         [self.paintView clear];
+    }
+    else if (button.tag == 105) {//保存button
+    
+
+        [self.paintView saveImage];
     }
 }
 //颜色按钮子按钮的响应

@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "7D6260C5E46E5127F2A20B05030DF74A1B6C0882",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "E93DEE9F449478A8BA2D8A37CB861C5155689CE8" : 0,
+    "7D6260C5E46E5127F2A20B05030DF74A1B6C0882" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "CEAE61B0-0F63-4C48-AC2F-F168D069E3AD",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "E93DEE9F449478A8BA2D8A37CB861C5155689CE8" : "",
+    "7D6260C5E46E5127F2A20B05030DF74A1B6C0882" : "0304%E8%87%AA%E5%88%B6%E7%94%BB%E6%9D%BF\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "0304自制画板",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "0304自制画板.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/PaintBoard\/printboard.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "7D6260C5E46E5127F2A20B05030DF74A1B6C0882"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/mymars\/mymars.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E93DEE9F449478A8BA2D8A37CB861C5155689CE8"
+    }
+  ]
+}
